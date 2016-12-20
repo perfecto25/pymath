@@ -58,26 +58,3 @@ while True:
 
     else:
         i = i + 1
-
-
-# initialize
-
-#num = 10
-
-
-
-#double_num = num * 2
-
-
-
-#second = moveLastToFirst(num)
-
-# while True: 
-
-#     if 1 < 2:
-
-#         False
-
-#     else:
-
-#         True
