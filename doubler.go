@@ -13,7 +13,7 @@ func countIntegers(arr []string) int {
 }
 
 // moves last ingteger to first position in an array
-func moveLastToFirst(number int) int {
+func moveLastToFirst(number uint64) uint64 {
 	str := strconv.Itoa(number)
 
 	// string array to store each number
@@ -49,7 +49,7 @@ func moveLastToFirst(number int) int {
 	return num
 }
 
-func compare(i int) string {
+func compare(i uint64) string {
 
 	double := i * 2
 	ltf := moveLastToFirst(i)
@@ -64,7 +64,7 @@ func compare(i int) string {
 
 func main() {
 
-	i := 1
+	var i uint64 = 1
 
 	for {
 
