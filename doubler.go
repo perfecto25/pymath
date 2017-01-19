@@ -13,43 +13,44 @@ func countIntegers(arr []string) int {
 }
 
 // moves last ingteger to first position in an array
-func moveLastToFirst(number int) int {
-	str := strconv.Itoa(number)
+func moveLastToFirst(number uint64) uint64 {
+//	str := strconv.Itoa(number)
+	str := strconv.FormatInt(number, 10)
+	return str
+	// // string array to store each number
+	// arr := []string{}
 
-	// string array to store each number
-	arr := []string{}
+	// // loop thru string, add each number to slice
+	// for _, x := range str {
+	// 	number := string(x)
+	// 	arr = append(arr, number)
+	// }
 
-	// loop thru string, add each number to slice
-	for _, x := range str {
-		number := string(x)
-		arr = append(arr, number)
-	}
+	// fmt.Println(countIntegers(arr))
+	// fmt.Println("\n")
 
-	fmt.Println(countIntegers(arr))
-	fmt.Println("\n")
+	// // get last # of array
+	// lastNum := arr[len(arr)-1]
 
-	// get last # of array
-	lastNum := arr[len(arr)-1]
+	// // move last number to 1st position
+	// arr = append([]string{lastNum}, arr...)
 
-	// move last number to 1st position
-	arr = append([]string{lastNum}, arr...)
+	// // get index of last element
+	// lastindex := len(arr) - 1
 
-	// get index of last element
-	lastindex := len(arr) - 1
+	// // remove last number from array (duplicate)
+	// arr = append(arr[:lastindex])
 
-	// remove last number from array (duplicate)
-	arr = append(arr[:lastindex])
+	// // join array elements into single number
+	// arrString := strings.Join(arr[:], "")
 
-	// join array elements into single number
-	arrString := strings.Join(arr[:], "")
+	// // convert string array to integer
+	// num, _ := strconv.Atoi(arrString)
 
-	// convert string array to integer
-	num, _ := strconv.Atoi(arrString)
-
-	return num
+	// return num
 }
 
-func compare(i int) string {
+func compare(i uint64) string {
 
 	double := i * 2
 	ltf := moveLastToFirst(i)
@@ -64,7 +65,7 @@ func compare(i int) string {
 
 func main() {
 
-	i := 1
+	var i uint64 = 1
 
 	for {
 
@@ -88,20 +89,5 @@ func main() {
 		}
 	}
 
-	// fmt.Println(arrString)
-	// fmt.Println(reflect.TypeOf(num)) // get var type
-
-	//	num := strconv.Atoi(arrString)
-	//
-	// fmt.Println("last number", numSlice[lastNum])
-
-	// fmt.Println(numSlice)
-	// lastNum := numSlice[len(numSlice)-1]
-	// numSlice[0] = lastNum
-	// numSlice = append(numSlice, lastNum)
-	// fmt.Println(lastNum)
-	// fmt.Println(numSlice)
-
-	//strArr := strings.Fields(str)
 
 }
