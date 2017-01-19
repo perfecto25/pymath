@@ -7,19 +7,45 @@ import (
 	"os"
 )
 
+/*
+Start with i = 11 and d(ouble) = d0 = 11. And for each numbers 1 .. 9
+Increase i + 1 and d + 10
+Then does d start with d0 + 1
+If i > limit (100 first time) is
+	d0 = 11 * 10
+	limit = limit * 10
+
+
+
+11 => 11
+12 => 21 (11 + 10)
+13 => 31 (21 + 10)
+20 .. just ignore
+21 => 12
+
+100 ... just ignore
+101 => 110 (11 * 10)
+102 => 210 (110 + 100)
+
+and so on...
+
+This is about 2.5 faster than previous because
+we don't do alot of multiplication and modulus each round
+just adding and one multiplication
+
+*/
 func main() {
-	var i uint64 = 1
-	var e uint64 = 1
-	var lim uint64 = 10
-	// Eg if i = 123 is e = 100 and lim = 1000
-	// the last = 3 and d = 12 + 3 * 100 = 312
+	var i uint64 = 11
+	var d0 uint64 = 11
+	var e uint64 = 10
+	var lim uint64 = 100
 
 	for {
-		fmt.Println(i)
-		last := i % 10 // Get last digit
-		if last != 0 {
-			d := i/10 + last*e // but last + last * e
-			// If d is double of i are the ready
+
+		d := d0
+		// Jump over numbers ending in zero
+		for n := 1; n <= 9; n++ {
+			fmt.Println(i, d) // Remove this line for even faster running
 			if i*2 == d {
 				fmt.Println("FOUND")
 
@@ -31,12 +57,15 @@ func main() {
 				defer file.Close()
 				return
 			}
+			i++
+			d += e
 		}
 		i++
-		// If n get over lim make e and lim 10 times bigger
+		d0++
 		if i >= lim {
-			lim *= 10
+			d0 = 11 * e
 			e *= 10
+			lim *= 10
 		}
 	}
 }
